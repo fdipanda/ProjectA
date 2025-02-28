@@ -4,9 +4,9 @@ using System.Threading;
 
 class BankAccount
 {
-    public int ID { get; } 
+    public int ID { get; }
     private int balance;
-    private readonly object lockObject = new object(); 
+    private Mutex mutex = new Mutex(); 
 
     public BankAccount(int id, int initialBalance)
     {
@@ -16,16 +16,22 @@ class BankAccount
 
     public void Deposit(int amount)
     {
-        lock (lockObject) 
+        mutex.WaitOne(); 
+        try
         {
             balance += amount;
             Console.WriteLine($"Deposited {amount} into Account {ID}, New Balance: {balance}");
+        }
+        finally
+        {
+            mutex.ReleaseMutex(); 
         }
     }
 
     public void Withdraw(int amount)
     {
-        lock (lockObject)
+        mutex.WaitOne(); 
+        try
         {
             if (balance >= amount)
             {
@@ -37,20 +43,30 @@ class BankAccount
                 Console.WriteLine($"Account {ID}: Insufficient funds!");
             }
         }
+        finally
+        {
+            mutex.ReleaseMutex(); 
+        }
     }
 
     public int GetBalance()
     {
-        lock (lockObject)
+        mutex.WaitOne(); 
+        try
         {
             return balance;
+        }
+        finally
+        {
+            mutex.ReleaseMutex(); 
         }
     }
 }
 
 class Bank
 {
-    private List<BankAccount> accounts = new List<BankAccount>(); 
+    private List<BankAccount> accounts = new List<BankAccount>();
+
     public void AddAccount(int accountId, int initialBalance)
     {
         if (FindAccount(accountId) == null)
@@ -66,7 +82,7 @@ class Bank
 
     public BankAccount FindAccount(int accountId)
     {
-        return accounts.Find(account => account.ID == accountId); 
+        return accounts.Find(account => account.ID == accountId);
     }
 }
 
@@ -125,7 +141,7 @@ class Program
                         Console.WriteLine($"Current Balance: {account.GetBalance()}");
                     }
                     break;
-                case "5": 
+                case "5":
                     Console.Write("Enter Account ID: ");
                     int concurrentAccountId = int.Parse(Console.ReadLine());
                     BankAccount concurrentAccount = bank.FindAccount(concurrentAccountId);
@@ -166,7 +182,6 @@ class Program
                         thread.Start();
                     }
 
-                    
                     foreach (Thread t in threads)
                     {
                         t.Join();

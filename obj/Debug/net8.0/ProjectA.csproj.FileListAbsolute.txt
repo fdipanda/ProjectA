@@ -12,3 +12,4 @@
 /home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.pdb
 /home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.genruntimeconfig.cache
 /home/fdipanda/ProjectA/obj/Debug/net8.0/ref/ProjectA.dll
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.sourcelink.json
