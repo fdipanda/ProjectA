@@ -1,0 +1,14 @@
+/home/fdipanda/ProjectA/bin/Debug/net8.0/ProjectA
+/home/fdipanda/ProjectA/bin/Debug/net8.0/ProjectA.deps.json
+/home/fdipanda/ProjectA/bin/Debug/net8.0/ProjectA.runtimeconfig.json
+/home/fdipanda/ProjectA/bin/Debug/net8.0/ProjectA.dll
+/home/fdipanda/ProjectA/bin/Debug/net8.0/ProjectA.pdb
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.GeneratedMSBuildEditorConfig.editorconfig
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.AssemblyInfoInputs.cache
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.AssemblyInfo.cs
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.csproj.CoreCompileInputs.cache
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.dll
+/home/fdipanda/ProjectA/obj/Debug/net8.0/refint/ProjectA.dll
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.pdb
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ProjectA.genruntimeconfig.cache
+/home/fdipanda/ProjectA/obj/Debug/net8.0/ref/ProjectA.dll
